@@ -1,0 +1,34 @@
+name: Compiling and running a Java file
+
+on:
+  schedule:
+    - cron: '0 13 * * *'
+
+jobs:
+  compile-and-run-java:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compile and run Java
+        run: |
+          javac HelloWorld.java
+          java -cp . HelloWorld
+
+  print-content:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print out content of the compiled Java file
+        run: cat HelloWorld.java
