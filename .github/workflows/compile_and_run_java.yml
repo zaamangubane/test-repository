@@ -19,7 +19,7 @@ jobs:
         - name: Compile and run Java
           run: |
             javac HelloWorld.java
-            java HelloWorld
+            java -cp . HelloWorld
   
     print-content:
       runs-on: ubuntu-latest
