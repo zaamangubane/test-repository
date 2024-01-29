@@ -1,6 +1,8 @@
-name: Compiling and running a java file
-
-on: [push]
+name: Compile and run a Java file
+ 
+on:
+  schedule:
+    - cron: '0 13 * * *'
 
 jobs:
     compile-and-run-java:
